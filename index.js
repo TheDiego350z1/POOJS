@@ -34,3 +34,26 @@ const juanita = new Student(
         "Curso de introducción a foto",
     ],
 );
+
+//Prototipos con sintaxis de clases
+
+class Student2 {
+    constructor({
+        name,
+        age, 
+        cursosAprobados = [],
+    }) {
+        this.name = name;
+        this.age = age;
+        this.cursosAprobados = cursosAprobados;
+    }
+
+    aprobarCurso(nuevoCurso) {
+        this.cursosAprobados.push(nuevoCurso);
+    }
+}
+
+const miguelito = new Student2 ({
+    name: "miguel",
+    age: 28,
+});
