@@ -1,3 +1,43 @@
+class Cursos {
+    constructor({
+        name,
+        clases = [],
+    }) {
+        this.name = name;
+        this.clases = clases;
+    }
+}
+
+const cursoPrograBasica = new Cursos({
+    name: "Curso Gratis de Programación Básica",
+});
+
+class Clases {
+    constructor({
+        name
+    }) {
+        this.name = name;
+    }
+}
+
+class RutasDeAprendizaje {
+    constructor({
+        name,
+        cursos,
+    }) {
+        this.name = name;
+        this.cursos = cursos;
+    }
+}
+
+const escuelaDeDesarrolloWeb = new RutasDeAprendizaje ({
+    name: "Escuela de Desarollo Web",
+    cursos: [
+        "Curso Definitivo de HTML y CSS",
+        "Curso Práctico de HTML y CSS",
+    ],
+});
+
 class Student3 {
     constructor({
         name,
@@ -27,6 +67,7 @@ const diego = new Student3 ({
     name: "Diego",
     email: "diego@gmail.com",
     userName: "DiegoG",
-    cursosAprobados: [],
-    rutasDeAprendizaje: [],
+    rutasDeAprendizaje: [
+        escuelaDeDesarrolloWeb,
+    ],
 });
