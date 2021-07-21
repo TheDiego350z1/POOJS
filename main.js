@@ -1,3 +1,21 @@
+class Commentario {
+    constructor({
+        content,
+        studentName,
+        studentRole = "Estudiante",
+    }) {
+        this.content = content;
+        this.studentName = studentName;
+        this.studentRole = studentRole;
+        this.likes = 0;
+    }
+    publicar() {
+        console.log(this.studentName + "(" + this.studentRole + ")");
+        console.log(this.content);
+    }
+}
+
+
 function videoPlay(id) {
     const ulrSecreta = "No debes ver esto" + id;
     console.log("se esta reprodución el video desde" + ulrSecreta);
@@ -100,8 +118,36 @@ class Student3 {
         this.cursosAprobados = cursosAprobados;
         this.rutasDeAprendizaje = rutasDeAprendizaje;
     }
+    publicarComentario(commentContent) {
+        const comment = new Commentario({
+            comment: commentContent,
+            studentName: this.name,
+        });
+        comment.publicar();
+    }
 }
- 
+
+class Teacher extends Student3 {
+    constructor(props) {
+        super(props); //Con la palabra super(); hacemos referencia a la clase madre
+    }
+    aprobarCurso(newCurso) {
+        if (newCurso.isFree) {
+            this.cursosAprobados.push(newCurso);
+        } else {
+            console.warn("Lo sentimos, " + this.name + " Paga");
+        }
+    }
+    publicarComentario(commentContent) {
+        const comment = new Commentario({
+            comment: commentContent,
+            studentName: this.name,
+            studentRole: "Teacher",
+        });
+        comment.publicar();
+    }
+
+}
 
 // Herencia! 
 class FreeStudent extends Student3{
@@ -122,6 +168,15 @@ const diego = new FreeStudent ({
     name: "Diego",
     email: "diego@gmail.com",
     userName: "DiegoG",
+    rutasDeAprendizaje: [
+        escuelaDeDesarrolloWeb,
+    ],
+});
+
+const antonio = new Teacher ({
+    name: "Antonio",
+    email: "diegoadad",
+    userName: "atonio",
     rutasDeAprendizaje: [
         escuelaDeDesarrolloWeb,
     ],
