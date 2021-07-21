@@ -8,7 +8,7 @@ function videoPausa(id) {
     console.log("se ha pausado el video" + id);
 }
 
-export class PlaziClass {
+class PlaziClass {
     constructor({
         name,
         videoID,
@@ -30,9 +30,11 @@ class Cursos {
     constructor({
         name,
         clases = [],
+        isFree = false,
     }) {
         this._name = name;
         this.clases = clases;
+        this.isFree = isFree;
     }
 
     get name() {
@@ -46,6 +48,7 @@ class Cursos {
 
 const cursoPrograBasica = new Cursos({
     name: "Curso Gratis de Programación Básica",
+    isFree: true,
 });
 
 class Clases {
@@ -98,8 +101,24 @@ class Student3 {
         this.rutasDeAprendizaje = rutasDeAprendizaje;
     }
 }
+ 
 
-const diego = new Student3 ({
+// Herencia! 
+class FreeStudent extends Student3{
+    constructor(props) {
+        super(props); //Con la palabra super(); hacemos referencia a la clase madre
+    }
+
+    aprobarCurso(newCurso) {
+        if (newCurso.isFree) {
+            this.cursosAprobados.push(newCurso);
+        } else {
+            console.warn("Lo sentimos, " + this.name + " Paga");
+        }
+    }
+}
+
+const diego = new FreeStudent ({
     name: "Diego",
     email: "diego@gmail.com",
     userName: "DiegoG",

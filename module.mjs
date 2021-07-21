@@ -1,4 +1,4 @@
-import { PlaziClass } from "./main.mjs";
+import { PlaziClass } from "./main.js";
 
 const clase99 = new PlaziClass ({
     name: "JavaScrip",
