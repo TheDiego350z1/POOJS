@@ -3,8 +3,16 @@ class Cursos {
         name,
         clases = [],
     }) {
-        this.name = name;
+        this._name = name;
         this.clases = clases;
+    }
+
+    get name() {
+        return this._name;
+    }
+
+    set name(nuevoNombre) {
+        this._name = nuevoNombre;
     }
 }
 
