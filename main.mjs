@@ -1,3 +1,31 @@
+function videoPlay(id) {
+    const ulrSecreta = "No debes ver esto" + id;
+    console.log("se esta reprodución el video desde" + ulrSecreta);
+}
+
+function videoPausa(id) {
+    const ulrSecreta = "No debes ver esto" + id;
+    console.log("se ha pausado el video" + id);
+}
+
+export class PlaziClass {
+    constructor({
+        name,
+        videoID,
+    }) {
+        this.name = name,
+        this.videoID = videoID;
+    }
+
+    reproducir() {
+        videoPlay(this.videoID);
+    }
+
+    pausar() {
+        videoPausa(this.videoID);
+    }
+}
+
 class Cursos {
     constructor({
         name,
